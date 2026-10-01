@@ -30,9 +30,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   googleFormUrl,
 }) => {
   return (
-    <header className="bg-white border-b border-slate-200/90 sticky top-0 z-40">
+    <header className="bg-white/95 border-b border-slate-200/90 sticky top-0 z-40 backdrop-blur-md safe-top">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-15 gap-2">
+        <div className="flex items-center justify-between h-14 gap-2">
           {/* Brand with MPC Logo */}
           <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
             <MpcLogo size={32} className="shrink-0 sm:hidden" />

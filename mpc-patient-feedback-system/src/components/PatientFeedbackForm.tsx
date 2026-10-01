@@ -1315,9 +1315,9 @@ export const PatientFeedbackForm: React.FC<PatientFeedbackFormProps> = ({
   };
 
   return (
-    <div className="max-w-3xl mx-auto py-3 sm:py-6 md:py-8 px-2 sm:px-4 md:px-6">
+    <div className="max-w-3xl mx-auto py-0 sm:py-4 md:py-8 px-0 sm:px-4 md:px-6">
       {/* Main Form Container */}
-      <div className="bg-white border border-stone-200/90 rounded-2xl sm:rounded-2xl p-3.5 sm:p-7 md:p-10 shadow-xs">
+      <div className="form-card bg-white border border-stone-200/90 rounded-none sm:rounded-2xl p-4 sm:p-7 md:p-10 shadow-none sm:shadow-xs">
 
         {/* Top Clinical Header */}
         <div className="border-b border-stone-200 pb-4 mb-4 sm:pb-6 sm:mb-6">
@@ -1380,8 +1380,8 @@ export const PatientFeedbackForm: React.FC<PatientFeedbackFormProps> = ({
             />
           </div>
 
-          {/* Quick Jump Section Pills — Scrollable */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar text-xs sm:text-[11px] touch-pan-x">
+          {/* Quick Jump Section Pills — Horizontally scrollable on mobile */}
+          <div className="section-pill-bar flex items-center gap-1.5 pb-1 text-xs sm:text-[11px] touch-pan-x">
             {activeSections.map((section, idx) => {
               const isActive = idx === currentStep;
               const isCompleted = sectionCompletionStatus[idx];

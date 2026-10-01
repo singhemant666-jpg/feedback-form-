@@ -7,20 +7,52 @@
   }
   /* Hide scrollbar for IE, Edge and Firefox */
   .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Safe-area spacing for notched phones (iPhone X+, Android) */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
   }
 }
 
+/* ===== GLOBAL MOBILE FOUNDATIONS ===== */
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  /* Prevent horizontal overflow on mobile */
+  overflow-x: hidden;
 }
 
-/* Ensure comfortable touch manipulation on mobile devices */
+body {
+  overflow-x: hidden;
+  /* Momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== TOUCH TARGET OPTIMIZATIONS ===== */
+/* All interactive elements: minimum 44px touch target (Apple HIG / Material) */
 button, input, select, textarea, a {
   touch-action: manipulation;
+  /* Remove iOS/Android tap highlight flash */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent iOS from zooming into inputs smaller than 16px */
+input, select, textarea {
+  font-size: 16px !important;
+}
+/* Reset font-size back for desktop where we want smaller text */
+@media (min-width: 640px) {
+  input, select, textarea {
+    font-size: inherit !important;
+  }
 }
 
 /* Browser surface defaults per Impeccable craft floor */
@@ -33,20 +65,22 @@ input, textarea {
   font-feature-settings: 'tnum' 1;
 }
 
-/* Custom subtle scrollbar */
-::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+/* Custom subtle scrollbar (desktop only) */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
 }
 
 /* ===== WIZARD SECTION TRANSITIONS ===== */
@@ -55,7 +89,7 @@ input, textarea {
 @keyframes sectionSlideIn {
   from {
     opacity: 0;
-    transform: translateY(18px) scale(0.99);
+    transform: translateY(14px) scale(0.99);
   }
   to {
     opacity: 1;
@@ -71,23 +105,23 @@ input, textarea {
   }
   to {
     opacity: 0;
-    transform: translateY(-12px) scale(0.99);
+    transform: translateY(-10px) scale(0.99);
   }
 }
 
 .section-enter {
-  animation: sectionSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: sectionSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .section-exit {
-  animation: sectionSlideOut 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: sectionSlideOut 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* ===== FIELD STAGGER ENTRANCE ===== */
 @keyframes fieldFadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -96,7 +130,7 @@ input, textarea {
 }
 
 .field-stagger > * {
-  animation: fieldFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fieldFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .field-stagger > *:nth-child(1) { animation-delay: 0.02s; }
@@ -144,7 +178,7 @@ input:focus, select:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(0, 71, 160, 0.12);
 }
 
-/* ===== TACTILE BUTTON ELEVATION (Exponential Deceleration) ===== */
+/* ===== TACTILE BUTTON ELEVATION ===== */
 .btn-elevate {
   transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease;
 }
@@ -152,7 +186,7 @@ input:focus, select:focus, textarea:focus {
   transform: translateY(-1px);
 }
 .btn-elevate:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.97);
 }
 
 /* ===== CUSTOM SELECTION & ACCESSIBLE FOCUS RING ===== */
@@ -164,6 +198,33 @@ input:focus, select:focus, textarea:focus {
 :focus-visible {
   outline: 2px solid #0047a0;
   outline-offset: 2px;
+}
+
+/* ===== TABLET SECTION NAV — horizontal scroll pill bar ===== */
+.section-pill-bar {
+  /* Allow horizontal scroll without showing scrollbar */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.section-pill-bar::-webkit-scrollbar {
+  display: none;
+}
+.section-pill-bar > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* ===== MOBILE CARD — edge-to-edge on very small screens ===== */
+@media (max-width: 374px) {
+  .form-card {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    padding: 1rem !important;
+  }
 }
 
 /* Respect reduced motion preferences */

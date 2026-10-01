@@ -368,8 +368,8 @@ export const PatientReferralForm: React.FC<PatientReferralFormProps> = ({
 
   // MAIN REFERRAL FORM VIEW
   return (
-    <div className="max-w-3xl mx-auto py-4 sm:py-8 px-3 sm:px-6">
-      <div className="bg-white border border-stone-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-xs">
+    <div className="max-w-3xl mx-auto py-0 sm:py-6 px-0 sm:px-6">
+      <div className="form-card bg-white border border-stone-200/90 rounded-none sm:rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-none sm:shadow-xs">
         
         {/* Top Header */}
         <div className="border-b border-stone-200 pb-5 mb-6">
