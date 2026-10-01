@@ -80,18 +80,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
           )}
 
-          {/* Right Action / Auth */}
+          {/* Right Action / Auth — Dashboard only */}
           <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-            {activeTab !== 'dashboard' ? (
-              <button
-                onClick={() => setActiveTab('dashboard')}
-                className="text-xs text-slate-500 hover:text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors flex items-center gap-1.5 cursor-pointer touch-manipulation min-h-[34px]"
-                title="Clinic Staff Reporting & Records"
-              >
-                <BarChart3 className="w-3.5 h-3.5 text-slate-500" />
-                <span className="hidden sm:inline">Staff Dashboard</span>
-              </button>
-            ) : (
+            {activeTab === 'dashboard' ? (
               <>
                 <button
                   onClick={() => setActiveTab('form')}
@@ -156,6 +147,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                   </div>
                 )}
               </>
+            ) : (
+              /* Patient pages — no links to dashboard */
+              null
             )}
           </div>
         </div>

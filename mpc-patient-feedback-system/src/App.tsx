@@ -132,31 +132,11 @@ export default function App() {
   const [accessToken, setAccessToken] = useState<string | null>(null);
   const [isLoggingIn, setIsLoggingIn] = useState<boolean>(false);
 
-  // Feedback records state
-  const [feedbackList, setFeedbackList] = useState<PatientFeedbackData[]>(() => {
-    try {
-      const stored = localStorage.getItem(LOCAL_STORAGE_FEEDBACK_KEY);
-      if (stored) {
-        return JSON.parse(stored);
-      }
-    } catch (e) {
-      console.warn('Could not read feedback from localStorage:', e);
-    }
-    return INITIAL_FEEDBACK_DATA;
-  });
+  // Feedback records state — Firestore is the single source of truth
+  const [feedbackList, setFeedbackList] = useState<PatientFeedbackData[]>([]);
 
-  // Referrals records state
-  const [referralList, setReferralList] = useState<PatientReferralData[]>(() => {
-    try {
-      const stored = localStorage.getItem(LOCAL_STORAGE_REFERRALS_KEY);
-      if (stored) {
-        return JSON.parse(stored);
-      }
-    } catch (e) {
-      console.warn('Could not read referrals from localStorage:', e);
-    }
-    return [];
-  });
+  // Referrals records state — Firestore is the single source of truth
+  const [referralList, setReferralList] = useState<PatientReferralData[]>([]);
 
   // Google Form configuration state
   const [googleFormConfig, setGoogleFormConfig] = useState<GoogleFormConfig | null>(() => {
@@ -186,23 +166,7 @@ export default function App() {
     }, 4500);
   };
 
-  // Persist feedback records
-  useEffect(() => {
-    try {
-      localStorage.setItem(LOCAL_STORAGE_FEEDBACK_KEY, JSON.stringify(feedbackList));
-    } catch (err) {
-      console.error('Failed to save feedback to localStorage:', err);
-    }
-  }, [feedbackList]);
-
-  // Persist referral records
-  useEffect(() => {
-    try {
-      localStorage.setItem(LOCAL_STORAGE_REFERRALS_KEY, JSON.stringify(referralList));
-    } catch (err) {
-      console.error('Failed to save referrals to localStorage:', err);
-    }
-  }, [referralList]);
+  // Note: localStorage persistence removed — Firestore is the single source of truth
 
   // Persist form config
   useEffect(() => {

@@ -1,11 +1,11 @@
 {
-  "projectId": "gen-lang-client-0591937437",
-  "appId": "1:1098565415045:web:4ff37546065a2d961279ec",
-  "apiKey": "AIzaSyCw683t1uA2SfcHdHa_YkB9QUTz7slP17k",
-  "authDomain": "gen-lang-client-0591937437.firebaseapp.com",
-  "storageBucket": "gen-lang-client-0591937437.firebasestorage.app",
-  "messagingSenderId": "1098565415045",
-  "measurementId": "",
-  "oAuthClientId": "1098565415045-spc3nupknj29n2eaukqv8u3hqea2fg4t.apps.googleusercontent.com",
+  "projectId": "mpc-patient-form",
+  "appId": "1:482858793554:web:058a4acf84a6ed9953bd8b",
+  "apiKey": "AIzaSyAZtb3vPxcewOEjmM23C0Da2u-HWdOkgzc",
+  "authDomain": "mpc-patient-form.firebaseapp.com",
+  "storageBucket": "mpc-patient-form.firebasestorage.app",
+  "messagingSenderId": "482858793554",
+  "measurementId": "G-K7WFERPCVP",
+  "oAuthClientId": "",
   "recaptchaSiteKey": ""
 }
