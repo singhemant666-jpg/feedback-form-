@@ -8,6 +8,14 @@
     ],
     "rewrites": [
       {
+        "source": "/feedback",
+        "destination": "/feedback/index.html"
+      },
+      {
+        "source": "/referral",
+        "destination": "/referral/index.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
