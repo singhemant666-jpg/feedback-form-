@@ -92,7 +92,8 @@ const LOCAL_STORAGE_FORM_CONFIG_KEY = 'mpc_clinic_google_form_config_v1';
 
 const getTabFromLocation = (): 'form' | 'referral' | 'dashboard' => {
   if (typeof window === 'undefined') return 'form';
-  const path = window.location.pathname.toLowerCase();
+  // Strip trailing slash so /referral/ === /referral
+  const path = window.location.pathname.toLowerCase().replace(/\/$/, '') || '/';
   const hash = window.location.hash.toLowerCase();
   if (path === '/referral' || path === '/referrals' || path === '/refer' || hash === '#referral' || hash === '#refer') {
     return 'referral';
