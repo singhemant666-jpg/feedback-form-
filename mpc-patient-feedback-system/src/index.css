@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Ensure comfortable touch manipulation on mobile devices */
+button, input, select, textarea, a {
+  touch-action: manipulation;
+}
+
+/* Browser surface defaults per Impeccable craft floor */
+input, textarea {
+  caret-color: #0047a0;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ===== WIZARD SECTION TRANSITIONS ===== */
+
+/* Section slide-in from right */
+@keyframes sectionSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Section slide-out to left */
+@keyframes sectionSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.99);
+  }
+}
+
+.section-enter {
+  animation: sectionSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.section-exit {
+  animation: sectionSlideOut 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===== FIELD STAGGER ENTRANCE ===== */
+@keyframes fieldFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.field-stagger > * {
+  animation: fieldFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.field-stagger > *:nth-child(1) { animation-delay: 0.02s; }
+.field-stagger > *:nth-child(2) { animation-delay: 0.05s; }
+.field-stagger > *:nth-child(3) { animation-delay: 0.08s; }
+.field-stagger > *:nth-child(4) { animation-delay: 0.11s; }
+.field-stagger > *:nth-child(5) { animation-delay: 0.14s; }
+.field-stagger > *:nth-child(6) { animation-delay: 0.17s; }
+.field-stagger > *:nth-child(7) { animation-delay: 0.20s; }
+.field-stagger > *:nth-child(8) { animation-delay: 0.23s; }
+
+/* ===== PROGRESS BAR SHIMMER ===== */
+@keyframes progressShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.progress-shimmer {
+  background-size: 200% 100%;
+  animation: progressShimmer 3s ease-in-out infinite;
+}
+
+/* ===== CELEBRATION CHECKMARK ===== */
+@keyframes checkPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.check-pop {
+  animation: checkPop 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===== FOCUS RING GLOW ===== */
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(0, 71, 160, 0.12);
+}
+
+/* ===== TACTILE BUTTON ELEVATION (Exponential Deceleration) ===== */
+.btn-elevate {
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease;
+}
+.btn-elevate:hover {
+  transform: translateY(-1px);
+}
+.btn-elevate:active {
+  transform: translateY(0);
+}
+
+/* ===== CUSTOM SELECTION & ACCESSIBLE FOCUS RING ===== */
+::selection {
+  background-color: #0047a0;
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid #0047a0;
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Styles for Clinical Referral & Receipt Vouchers */
+@media print {
+  header, footer, nav, button, .no-print {
+    display: none !important;
+  }
+  body, main {
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .print-only-block {
+    display: block !important;
+  }
+  .print-clean-card {
+    border: 1px solid #1e293b !important;
+    box-shadow: none !important;
+    padding: 24px !important;
+    margin: 0 !important;
+  }
+}

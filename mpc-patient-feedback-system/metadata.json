@@ -1,0 +1,6 @@
+{
+  "name": "MPC Patient Feedback System",
+  "description": "Comprehensive patient feedback collection, clinical analytics, and Google Forms integration for MPC clinics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
