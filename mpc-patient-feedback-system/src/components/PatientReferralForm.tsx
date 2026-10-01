@@ -371,20 +371,15 @@ export const PatientReferralForm: React.FC<PatientReferralFormProps> = ({
     <div className="max-w-3xl mx-auto py-4 sm:py-8 px-3 sm:px-6">
       <div className="bg-white border border-stone-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-xs">
         
-        {/* Top Header with Brand */}
+        {/* Top Header */}
         <div className="border-b border-stone-200 pb-5 mb-6">
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3.5 text-left min-w-0">
-              <MpcLogo size={48} className="shrink-0 drop-shadow-xs" />
-              <div className="min-w-0">
-                <h1 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight leading-snug">
-                  Patient Referral Form
-                </h1>
-                <p className="text-xs sm:text-sm text-stone-500 mt-1 max-w-xl">
-                  Introduce a loved one or colleague to MPC's doctor consultations and physical therapy programs.
-                </p>
-              </div>
-            </div>
+          <div className="text-left">
+            <h1 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight leading-snug">
+              Patient Referral Form
+            </h1>
+            <p className="text-xs sm:text-sm text-stone-500 mt-1 max-w-xl">
+              Introduce a loved one or colleague to MPC's doctor consultations and physical therapy programs.
+            </p>
           </div>
         </div>
 

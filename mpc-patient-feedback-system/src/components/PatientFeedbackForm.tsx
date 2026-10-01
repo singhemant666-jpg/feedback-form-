@@ -1319,19 +1319,15 @@ export const PatientFeedbackForm: React.FC<PatientFeedbackFormProps> = ({
       {/* Main Form Container */}
       <div className="bg-white border border-stone-200/90 rounded-2xl sm:rounded-2xl p-3.5 sm:p-7 md:p-10 shadow-xs">
 
-        {/* Top Clinical Header with Official MPC Logo */}
+        {/* Top Clinical Header */}
         <div className="border-b border-stone-200 pb-4 mb-4 sm:pb-6 sm:mb-6">
-          <div className="flex items-center sm:items-start gap-3 sm:gap-4.5 text-left">
-            <MpcLogo size={42} className="shrink-0 drop-shadow-xs sm:hidden" />
-            <MpcLogo size={58} className="shrink-0 drop-shadow-xs hidden sm:block" />
-            <div className="flex-1 min-w-0">
-              <h1 className="text-lg sm:text-2xl font-bold text-stone-900 tracking-tight leading-snug">
-                Patient Feedback Form
-              </h1>
-              <p className="text-xs sm:text-sm text-stone-500 mt-0.5 sm:mt-1 max-w-xl">
-                Your feedback directly guides clinical quality and patient care standards across all MPC centers.
-              </p>
-            </div>
+          <div className="text-left">
+            <h1 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight leading-snug">
+              Patient Feedback Form
+            </h1>
+            <p className="text-xs sm:text-sm text-stone-500 mt-0.5 sm:mt-1 max-w-xl">
+              Your feedback directly guides clinical quality and patient care standards across all MPC centers.
+            </p>
           </div>
         </div>
 
