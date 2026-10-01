@@ -735,12 +735,7 @@ export const PatientReferralForm: React.FC<PatientReferralFormProps> = ({
           )}
 
           {/* Submit Actions */}
-          <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="text-xs text-slate-500 text-center sm:text-left flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-              <span>Confidential clinical referrals handled directly by MPC Front Desk.</span>
-            </div>
-
+          <div className="pt-4 border-t border-slate-200 flex justify-end">
             <button
               type="submit"
               disabled={isSubmitting}

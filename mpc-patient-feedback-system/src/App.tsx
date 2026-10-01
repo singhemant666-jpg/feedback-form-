@@ -472,9 +472,8 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-center">
           <p>© {new Date().getFullYear()} My Pain Clinic Global (MPC) – Medical & Physiotherapy. All clinical rights reserved.</p>
-          <p className="text-slate-400">Integrated with Google Forms & Google Drive API</p>
         </div>
       </footer>
 
