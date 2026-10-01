@@ -35,8 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center justify-between h-14 gap-2">
           {/* Brand with MPC Logo */}
           <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-            <MpcLogo size={32} className="shrink-0 sm:hidden" />
-            <MpcLogo size={36} className="shrink-0 hidden sm:block" />
+            <MpcLogo size={34} className="shrink-0" />
             <div className="flex flex-col min-w-0">
               <span className="font-bold text-slate-900 text-xs sm:text-base tracking-tight leading-tight truncate">
                 <span className="hidden xs:inline">My Pain Clinic</span>
