@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
-    "firebase:login": "firebase login",
+    "login": "npx firebase-tools login",
     "deploy": "npm run build && npx firebase-tools deploy --only hosting"
   },
   "dependencies": {
@@ -34,6 +34,7 @@
     "@types/react-dom": "^19.3.0",
     "autoprefixer": "^10.4.21",
     "esbuild": "^0.25.0",
+    "firebase-tools": "^15.32.1",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.21.0",
     "typescript": "^7.0.2"
