@@ -100,6 +100,7 @@ const getTabFromLocation = (): 'form' | 'referral' | 'dashboard' => {
   if (path === '/dashboard' || hash === '#dashboard') {
     return 'dashboard';
   }
+  // / and /feedback both show the feedback form
   return 'form';
 };
 
@@ -108,8 +109,9 @@ export default function App() {
 
   const setActiveTab = (tab: 'form' | 'referral' | 'dashboard') => {
     setActiveTabState(tab);
-    const targetPath = tab === 'referral' ? '/referral' : tab === 'dashboard' ? '/dashboard' : '/';
-    if (window.location.pathname !== targetPath) {
+    // Use /feedback as canonical URL for form, /referral for referral, /dashboard for dashboard
+    const targetPath = tab === 'referral' ? '/referral' : tab === 'dashboard' ? '/dashboard' : '/feedback';
+    if (window.location.pathname !== targetPath && window.location.pathname !== '/') {
       window.history.pushState({ tab }, '', targetPath);
     }
   };
