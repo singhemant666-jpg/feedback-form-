@@ -2,9 +2,6 @@ import { PatientFeedbackData } from '../types/feedback';
 
 export const CLINIC_LOCATIONS = [
   'MPC Bandra West Clinic',
-  'MPC Andheri West Clinic',
-  'MPC Lower Parel Rehab Center',
-  'MPC Powai Spine & Physio Clinic',
 ];
 
 // 1. Consultation Doctors (Initial Clinical Consultation)
